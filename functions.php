@@ -20,7 +20,7 @@
   ========================================================================== */
   // require_once('functions/template/get-template-partial.php');
   // require_once('functions/template/limit-chars.php');
-  require_once('functions/template/limit-words.php');
+//  require_once('functions/template/limit-words.php');
   // require_once('functions/template/slugify.php');
   // require_once('functions/template/check-if-ajax.php');
   // require_once('functions/template/get-file-type.php');

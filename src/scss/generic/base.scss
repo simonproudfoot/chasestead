@@ -14,11 +14,33 @@ h5,
 blockquote {
     font-weight: config("fontWeights.semibold");
 }
+
+ul {
+    list-style: none;
+}
+
+.content {
+    li {
+        margin-bottom: 1em;
+        &::before {
+            content: "";
+            background: config("colors.accent");
+            -webkit-border-radius: 30px;
+            border-radius: 20px;
+            padding-inline: 10px;
+            -webkit-margin-end: 14px;
+            margin-inline-end: 14px;
+            list-style: none;
+            width: 3px;
+            height: 15px;
+        }
+    }
+}
+
 .btn {
     text-decoration: none;
 }
 .main {
-
     &--frontpage {
         padding-top: 550px;
     }
@@ -56,11 +78,106 @@ blockquote {
     }
 }
 
-
 .break {
     background-color: config("colors.accent");
     height: 3px;
     width: 30px;
     margin: 1em 0;
     display: block;
+}
+
+
+
+
+
+#wpadminbar {
+    direction: ltr;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 37px;
+    padding: 2px 0;
+    height: 37px;
+
+    background: config("colors.primary");
+    a{
+        color: config("colors.accent");
+    }
+}
+
+#wpadminbar{
+    bottom: 0 !important;
+}
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption {
+    max-width: 96%;
+    text-align: left;
+    font-size: 11px;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption .wp-caption-text,
+.gallery-caption {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
 }
