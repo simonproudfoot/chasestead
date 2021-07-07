@@ -22,7 +22,8 @@ var app = new Vue({
       sliding: null,
       menuTl: new gsap.timeline(),
       videoPlaying: [], // in case I need to use this again
-      autoPlaySlides: true
+      autoPlaySlides: true,
+      selectedImg: 1,
     }
   },
   computed: {
@@ -50,6 +51,11 @@ var app = new Vue({
       this.sliding = setInterval(() => {
         this.slideNext()
       }, 3000)
+    },
+    // GALLERY SLIDER
+    selectImage(i){
+      console.log(i)
+      this.selectedImg = i
     },
     // NEWS SLIDER 
     slideChange(i) {
