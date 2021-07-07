@@ -1,0 +1,66 @@
+.testimonial {
+    margin: auto;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        display: block;
+        top: -5px;
+        right: 0;
+        left: 0;
+        
+        margin: auto;
+        background-image: url('../../src/img/q.svg');
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+    .line {
+        height: 3px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        width: 100%;
+        background-color: config("colors.primary");
+    }
+    .circle {
+        position: absolute;
+        border-radius: 100%;
+        width: 20px;
+        height: 20px;
+        transform: translateY(-50%);
+        background-color: #fff;
+        border: 3px solid config("colors.primary");
+        top: 50%;
+    }
+    &__content {
+        position: relative;
+        border: 3px solid config("colors.primary");
+        &::after {
+            content: "";
+            position: absolute;
+            height: 10px;
+            width: 90%;
+            background: #fff;
+            display: block;
+            top: -5px;
+            right: 0;
+            left: 0;
+            margin: auto;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            height: 10px;
+            width: 90%;
+            background: #fff;
+            display: block;
+            bottom: -5px;
+            right: 0;
+            left: 0;
+            margin: auto;
+        }
+    }
+}

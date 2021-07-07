@@ -1,0 +1,124 @@
+$innerPadding: 10em;
+.cta {
+    display: block;
+    background-color: config("colors.primary");
+    width: 100%;
+    min-height: 400px;
+    position: relative;
+    transition-duration: 0.5s;
+    &__flag {
+        position: absolute;
+        left: -5px;
+        top: 10px;
+        width: auto;
+        height: auto;
+        background-color: config("colors.accent");
+        font-weight: config("fontWeights.bold");
+        padding: 8px;
+        @media (max-width: config("screens.sm")) {
+            top: 70px;
+        }
+    }
+    &__titlebar {
+        background-color: config("colors.secondary");
+        width: 100%;
+        top: 0;
+        right: 0;
+        position: absolute;
+        min-height: 2px;
+        height: auto;
+        display: block;
+        z-index: 1;
+        @media (max-width: config("screens.sm")) {
+            z-index: 2;
+            position: relative;
+        }
+        &__sliderNav {
+            @media (max-width: config("screens.sm")) {
+                padding: 1.3em 4% 1em 1em;
+            }
+            @media (min-width: config("screens.sm")) {
+                padding: 1.3em 4% 1em 48%;
+            }
+            display: flex;
+            justify-content: space-between;
+            .arrows {
+                width: 50px;
+                height: 20px;
+                &--btn {
+                    width: 20px;
+                    height: 20px;
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                }
+                &--left {
+                    transform: rotate(180deg);
+                }
+            }
+            .navDot {
+                border: 2px #fff solid;
+                height: 17px;
+                width: 17px;
+                border-radius: 15px;
+                display: inline-block;
+                margin-right: 0.6em;
+            }
+            .active {
+                background-color: #fff;
+            }
+        }
+        &__inner-title {
+            padding: 1em 10% 1em 60%;
+        }
+    }
+    &__image {
+        width: 55%;
+        display: inline-block;
+        height: 100%;
+        position: absolute;
+        pointer-events: none;
+        overflow: hidden;
+        @media (max-width: config("screens.sm")) {
+            width: 100%;
+            display: block;
+            height: 100px;
+            position: relative;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            @media (min-width: config("screens.sm")) {
+                clip-path: polygon(0 0, 80% 0, 100% 100%, 0% 100%);
+            }
+        }
+    }
+    &__content {
+        z-index: 0;
+        position: relative;
+        display: block;
+        color: #fff !important;
+        @media (min-width: config("screens.sm")) {
+            padding-left: 40%;
+            display: inline-block;
+        }
+        &__inner {
+            list-style: none;
+            &__gallery {
+                list-style: none;
+                li {
+                    padding: 0.3em !important;
+                    list-style: none;
+                }
+            }
+            @media (min-width: config("screens.sm")) {
+                padding: 7em 10% 6em 28%;
+            }
+            @media (max-width: config("screens.sm")) {
+                padding: 2em 1em;
+            }
+        }
+    }
+}

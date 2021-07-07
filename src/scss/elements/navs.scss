@@ -1,0 +1,89 @@
+.preNav {
+    background-color: config("colors.primary");
+    height: 56px;
+    line-height: 56px;
+    overflow: hidden;
+    position: relative;
+    a {
+        text-decoration: none !important;
+    }
+}
+.mainNav {
+    position: relative;
+    &__largeNav {
+        @media (max-width: config("screens.tablet")) {
+            display: none !important;
+        }
+    }
+    &__dropdown {
+        position: relative;
+        width: 120px;
+        text-align: center;
+        ul {
+            transform: translateY(-10px);
+            background-color: config("colors.primary");
+            width: auto;
+            height: auto;
+            left: 0;
+            right: 0;
+            margin-top: -32px;
+            text-align: center;
+            padding-top: 60px;
+            border-top: 3px config("colors.accent") solid;
+            z-index: 0;
+            position: absolute;
+            color: #fff;
+            list-style: none;
+            padding-left: 0;
+            transform: translateY(0);
+            
+            li {
+                transform: translateY(-10px);
+            }
+            span {
+                height: 2px;
+                background-color: grey;
+                width: 19px;
+                margin: 3px auto 20px auto;
+                display: block;
+                &:last-of-type {
+                    display: none;
+                }
+            }
+        }
+    }
+    a {
+        text-decoration: none;
+        z-index: 1;
+        position: relative;
+        color: inherit;
+        &:hover,
+        .active {
+            color: config("colors.accent");
+        }
+    }
+}
+.mobileMenu {
+    background-color: config("colors.primary");
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    z-index: 9;
+    padding-top: 200px;
+    text-align: center;
+    span {
+        height: 2px;
+        background-color: grey;
+        width: 30px;
+        margin: 10px auto;
+        display: block;
+    }
+    li {
+        margin: 1em 0;
+        list-style: none;
+        a {
+            text-decoration: none;
+        }
+    }
+}

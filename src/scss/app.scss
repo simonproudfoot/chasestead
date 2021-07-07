@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Generic
+    - Low-specificity, far-reaching rulesets like CSS resets
+  ========================================================================== */
+  @import "/generic/generic.reset.scss";
+
+/* ==========================================================================
+   Elements
+     -  Unclassed HTML elements (p, h1 etc)
+  ========================================================================== */
+
+/* ==========================================================================
+   Objects
+    - Unstyled / Design-free objects, abstractions and patterns
+  ========================================================================== */
+
+/* ==========================================================================
+   Components
+    - Components and widgets
+  ========================================================================== */
+  @import "/components/components.tw.scss";
+  @import "/components/testimonials.scss";
+  @import "/components/card.scss";
+  @import "/components/cta.scss";
+  @import "/elements/navs.scss";
+  @import "/elements/header.scss";
+  @import "/components/largeVideo.scss";
+  @import "/generic/base.scss";
+
+
+/* ==========================================================================
+   Utilities
+    - Helper classes and overrides
+  ========================================================================== */
+  @import "/utils/utils.all.scss";
+
+  @import '~tailwind-grid/lib/main';
+
+
+
+  

@@ -1,0 +1,99 @@
+.header {
+    width: 100%;
+    top: 0;
+    position: absolute;
+    min-height: 600px;
+    z-index: -1;
+   
+    &--small{
+        min-height: 300px !important;
+        
+    }
+
+    &__image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        clip-path: polygon(0 0%, 100% 0%, 100% 550px, 0% 100%);
+        min-height: 600px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #000;
+
+        &--small{
+            clip-path: polygon(0 0%, 100% 0%, 100% 250px, 0% 100%);
+            min-height: 300px !important;
+        }
+    }
+    &__brochure {
+        position: absolute;
+        bottom: 15px;
+        right: 0;
+        height: auto;
+        width: 250px;
+        z-index: 10;
+        background-color: config("colors.secondary");
+        padding: 0.6em 1em;
+        color: #fff;
+    }
+
+}
+
+.header--process {
+    position: relative;
+    background-color: #000;
+    width: 100%;
+    min-height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &__shape {
+        z-index: 0;
+        position: absolute;
+        left: 0;
+        width: 30%;
+        display: inline-block;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+    }
+    &__content {
+        position: relative;
+        display: inline-block;
+        z-index: 1;
+        min-height: 400px;
+        &__inner {
+            &__index {
+                padding: 0 !important;
+                list-style: none;
+                a {
+                    color: inherit;
+                    text-decoration: none !important;
+                }
+                .active {
+                    background-color: config("colors.accent");
+                    pointer-events: none;
+                }
+                li {
+                    color: #fff;
+                    min-width: 390px;
+                    list-style: none;
+                    background-color: config("colors.secondary");
+                    padding: 1em;
+                    margin-bottom: 0.4em;
+                    text-decoration: none !important;
+
+                    transition-duration: 0.8s;
+                    &:hover:not(.active) {
+                        margin-left: 0.5em;
+                        background-color: config("colors.accent-dark");
+                    }
+                }
+            }
+        }
+    }
+}

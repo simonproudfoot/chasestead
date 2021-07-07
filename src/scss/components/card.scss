@@ -1,0 +1,26 @@
+.card{
+    a{
+    text-decoration: none;
+    color: inherit;
+    }
+    &__thumbnail{
+        display: block;
+        background-color: config("colors.secondary");
+        height: 150px;
+        overflow: hidden;
+        img{
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    &__title{
+        padding: 1em;
+        text-align: center;
+        font-weight: config("colors.secondary");
+        font-weight: config("fontWeights.semibold");
+    }
+    &__text{
+       
+    }
+}
