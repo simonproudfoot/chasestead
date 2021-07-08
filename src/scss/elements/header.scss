@@ -4,10 +4,13 @@
     position: absolute;
     min-height: 600px;
     z-index: -1;
-   
-    &--small{
+
+    iframe {
+        clip-path: polygon(0 0%, 100% 0%, 100% 370px, 0% 100%);
+    }
+
+    &--small {
         min-height: 300px !important;
-        
     }
 
     &__image {
@@ -22,7 +25,7 @@
         left: 0;
         background-color: #000;
 
-        &--small{
+        &--small {
             clip-path: polygon(0 0%, 100% 0%, 100% 250px, 0% 100%);
             min-height: 300px !important;
         }
@@ -38,7 +41,6 @@
         padding: 0.6em 1em;
         color: #fff;
     }
-
 }
 
 .header--process {

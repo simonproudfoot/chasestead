@@ -14,11 +14,9 @@ h5,
 blockquote {
     font-weight: config("fontWeights.semibold");
 }
-
 ul {
     list-style: none;
 }
-
 .content {
     li {
         margin-bottom: 1em;
@@ -36,7 +34,6 @@ ul {
         }
     }
 }
-
 .btn {
     text-decoration: none;
 }
@@ -78,6 +75,45 @@ ul {
     }
 }
 
+
+.contact-content{
+    @media (max-width: config("screens.md")) {
+        order: 2;
+    }
+}
+
+.contactForm{
+    order: 1;
+   // @media (min-width: config("screens.tablet")) {
+        z-index: 0;
+        margin-top: -150px;
+       
+        &__inner{
+            padding-top: 180px !important;
+        }
+
+ //   }
+    input, textarea{
+        background-color: config("colors.secondary");
+        padding: 1em;
+        color: #fff;
+        width: 100%;
+        margin-bottom: 2em;
+    }
+
+    input[type=submit] {
+        background-color: transparent;
+        border: 1px #fff solid;
+        padding: 1em;
+        color: #fff;
+        &:hover{
+            background-color: #fff;
+            background-color: config("colors.secondary");
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
 .break {
     background-color: config("colors.accent");
     height: 3px;
@@ -85,11 +121,7 @@ ul {
     margin: 1em 0;
     display: block;
 }
-
-
-
-
-
+// WORDPRESS
 #wpadminbar {
     direction: ltr;
     color: #000;
@@ -98,26 +130,22 @@ ul {
     line-height: 37px;
     padding: 2px 0;
     height: 37px;
-
     background: config("colors.primary");
-    a{
+    a {
         color: config("colors.accent");
     }
 }
-
-#wpadminbar{
+#wpadminbar {
     bottom: 0 !important;
 }
 .alignnone {
     margin: 5px 20px 20px 0;
 }
-
 .aligncenter,
 div.aligncenter {
     display: block;
     margin: 5px auto 5px auto;
 }
-
 .alignright {
     float: right;
     margin: 5px 0 20px 20px;
@@ -126,45 +154,36 @@ div.aligncenter {
     float: left;
     margin: 5px 20px 20px 0;
 }
-
 a img.alignright {
     float: right;
     margin: 5px 0 20px 20px;
 }
-
 a img.alignnone {
     margin: 5px 20px 20px 0;
 }
-
 a img.alignleft {
     float: left;
     margin: 5px 20px 20px 0;
 }
-
 a img.aligncenter {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
-
 .wp-caption {
     max-width: 96%;
     text-align: left;
     font-size: 11px;
 }
-
 .wp-caption.alignnone {
     margin: 5px 20px 20px 0;
 }
-
 .wp-caption.alignleft {
     margin: 5px 20px 20px 0;
 }
-
 .wp-caption.alignright {
     margin: 5px 0 20px 20px;
 }
-
 .wp-caption img {
     border: 0 none;
     height: auto;
@@ -173,7 +192,6 @@ a img.aligncenter {
     padding: 0;
     width: auto;
 }
-
 .wp-caption .wp-caption-text,
 .gallery-caption {
     font-size: 11px;

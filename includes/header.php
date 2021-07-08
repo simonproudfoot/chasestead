@@ -8,12 +8,12 @@
         </a>
     </header>
     <?php elseif (is_page('contact')) : { ?>
-        <iframe width="100%" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD08ZGji-OhOjmCgylg3rRsqvJ0hl6fyew&q=SG6 1JX">
-        </iframe>
-
-        
+        <header class="header header--small  z-0 relative z-10">
+            <iframe width="100%" height="450" style="border:0" loading="lazy" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD08ZGji-OhOjmCgylg3rRsqvJ0hl6fyew&q=SG6 1JX">
+            </iframe>
+        </header>
     <?php } ?>
-    <?php else : ?>
+<?php else : ?>
     <header class="header header--small  z-0 relative">
         <div class="header__image header__image--small" style="background-image: url('<?php the_post_thumbnail_url() ?>'">
             the title
