@@ -1,10 +1,8 @@
-<?php get_template_part('/includes/meta'); ?>
-<?php get_template_part('/includes/navbar'); ?>
-<?php 
-$type = 'process';
-get_template_part('/includes/singleHeader')?>
+
+
+<?php get_template_part('/includes/header'); ?>
 <main class="main <?php echo is_front_page() ? 'main--frontpage' : 'main--standard' ?>">
-    <section class="py-10  bg-grey-lighter content font-bold">
+    <section class="py-10  content">
         <div class="container">
             <div class="row justify-around">
                 <div class="col-12 md:col-5">
@@ -16,8 +14,8 @@ get_template_part('/includes/singleHeader')?>
             </div>
         </div>
     </section>
-    <?php get_template_part('includes/gallery') ?>
-    <section class="py-10 content">
+
+    <section class="py-10 ">
         <div class="container">
             <div class="row justify-around">
                 <div class="col-12 md:col-5">
@@ -31,4 +29,3 @@ get_template_part('/includes/singleHeader')?>
     </section>
 </main>
 <?php get_template_part('/includes/footer'); ?>
-

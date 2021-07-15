@@ -1,51 +1,13 @@
 {
-    "key": "group_60e42f21eaa99",
-    "title": "Home page",
+    "key": "group_60e81ee7c7ecf",
+    "title": "Header video",
     "fields": [
         {
-            "key": "field_60e42f337afe5",
-            "label": "Intro heading",
-            "name": "intro_heading",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_60e42f497afe6",
-            "label": "intro text",
-            "name": "intro_text",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_60ed5780e93ac",
-            "label": "Local video file",
+            "key": "field_60ec04c404eb3",
+            "label": "Use Vimeo?",
             "name": "local_or_vimeo",
             "type": "true_false",
-            "instructions": "Use video file in media library or Vimeo. (Use Vimeo for large files)",
+            "instructions": "Add video from the WordPress media gallery or embed from Vimeo\r\n(Use Vimeo for larger video files)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -60,17 +22,17 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_60e8266228c17",
-            "label": "feature video (local file)",
-            "name": "feature_video",
+            "key": "field_60e81ef107d3a",
+            "label": "header_video",
+            "name": "header_video",
             "type": "file",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_60ed5780e93ac",
-                        "operator": "==",
+                        "field": "field_60ec04c404eb3",
+                        "operator": "!=",
                         "value": "1"
                     }
                 ]
@@ -87,17 +49,17 @@
             "mime_types": ""
         },
         {
-            "key": "field_60ed57b4e93ad",
-            "label": "Feature video (Vimeo)",
-            "name": "feature_video_vimeo",
+            "key": "field_60ec066061a22",
+            "label": "header_video_vimeo",
+            "name": "header_video_vimeo",
             "type": "text",
-            "instructions": "Enter the ID from the vimeo URL",
+            "instructions": "use video url code EXAMPLE: 12553509",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_60ed5780e93ac",
-                        "operator": "!=",
+                        "field": "field_60ec04c404eb3",
+                        "operator": "==",
                         "value": "1"
                     }
                 ]
@@ -117,6 +79,20 @@
     "location": [
         [
             {
+                "param": "post_type",
+                "operator": "==",
+                "value": "process"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "sectors"
+            }
+        ],
+        [
+            {
                 "param": "page_template",
                 "operator": "==",
                 "value": "front-page.php"
@@ -131,5 +107,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1626167437
+    "modified": 1626099483
 }

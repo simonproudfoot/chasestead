@@ -4,6 +4,8 @@
 import Vue from 'vue'
 import VueCarousel from 'vue-carousel';
 Vue.use(VueCarousel);
+import vueVimeoPlayer from 'vue-vimeo-player'
+Vue.use(vueVimeoPlayer)
 var app = new Vue({
   props: ['content'],
   el: '#js-app',
@@ -40,12 +42,12 @@ var app = new Vue({
     },
   },
   methods: {
-    playVideo(vRef, overlay) {
-      this.videoPlaying = [vRef, overlay]
+    stopVideo(overlay) {
+      gsap.to(this.$refs[overlay], { opacity: 1, duration: 0.5 })
     },
-    stopVideo() {
-      gsap.to(this.$refs[this.videoPlaying[1]], { opacity: 1, duration: 0.5 })
-      this.videoPlaying = []
+    playVideo(vRef, overlay) {
+      this.$refs[vRef].play()
+      gsap.to(this.$refs[overlay], { opacity: 0, duration: 0.5 })
     },
     slidePlay() {
       this.sliding = setInterval(() => {
@@ -53,7 +55,7 @@ var app = new Vue({
       }, 3000)
     },
     // GALLERY SLIDER
-    selectImage(i){
+    selectImage(i) {
       console.log(i)
       this.selectedImg = i
     },
@@ -104,7 +106,6 @@ var app = new Vue({
       if (!this.preventPress) {
         this.preventSlideClick(true)
         if (this.currentSlide >= this.slideCount) {
-
           this.newsSliderTl.to('.slideContent', { x: 100, opacity: 0, duration: 0.5 })
           setTimeout(() => {
             this.newsSliderTl.set('.slideContent', { x: -100, opacity: 0, onComplete: this.prev() })
@@ -148,8 +149,10 @@ var app = new Vue({
       if (onOff) {
         item.style.display = 'block'
         item.style.opacity = 1
-
+        item.previousElementSibling.classList.add('active')
+  
       } else {
+        item.previousElementSibling.classList.remove('active')
         item.style.display = 'none'
         item.style.opacity = 0
       }
@@ -160,31 +163,32 @@ var app = new Vue({
     }
   },
   watch: {
-    autoPlaySlides(v){
-      if(!v){
+    autoPlaySlides(v) {
+      if (!v) {
         clearInterval(this.sliding)
       }
     },
-    videoPlaying(val) {
-      this.$refs[val[0]].play()
-      gsap.to(this.$refs[val[1]], { opacity: 0, duration: 0.5 })
-    },
+
     menuOpen(val) {
       var mobileTl = new gsap.timeline();
       if (val) {
+        document.body.style.overflowY = 'hidden'
+        gsap.to('.header__brochure', { autoAlpha: 0, duration: 0.3, ease: 'easeIn' });
         mobileTl.from('.mobileMenu li', { autoAlpha: 0, x: -10, duration: 0.3, stagger: 0.1, ease: 'easeIn' });
         mobileTl.from('.mobileMenu span', { autoAlpha: 0, x: -10, duration: 0.3, stagger: 0.1, ease: 'easeIn' }, '=-0.5');
       } else {
         mobileTl.kill()
+        document.body.style.overflowY = 'auto'
+        gsap.to('.header__brochure', { autoAlpha: 1, duration: 0.3, ease: 'easeIn' });
       }
     }
   },
   created() {
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
- 
-      this.slidePlay()
-    
+
+    this.slidePlay()
+
   },
   destroyed() {
     window.removeEventListener('resize', this.handle)

@@ -46,7 +46,7 @@
       <div class="col-12 md:col-6 contactForm">
         <div class="contactForm__inner bg-primary text-white  p-4 md:p-10">
           <p class="text-white pb-10">Please fill in your enquiry and someone will be in touch</p>
-          <?php echo do_shortcode('[contact-form-7 id="87" title="Contact form 1"]', true); ?>
+          <?php echo do_shortcode('[contact-form-7 id="87" title="Contact form 1"]'); ?>
         </div>
       </div>
     </div>

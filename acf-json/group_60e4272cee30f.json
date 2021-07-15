@@ -3,6 +3,25 @@
     "title": "Globals",
     "fields": [
         {
+            "key": "field_60e82b3473959",
+            "label": "brochure pdf file",
+            "name": "brochure_pdf_file",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_60e4286564449",
             "label": "Contact",
             "name": "",
@@ -179,5 +198,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1625728325
+    "modified": 1625828617
 }

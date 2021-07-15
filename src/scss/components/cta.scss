@@ -52,6 +52,9 @@ $innerPadding: 10em;
                     background-position: center;
                     background-repeat: no-repeat;
                     display: inline-block;
+                    &:hover {
+                        opacity: 0.7;
+                    }
                 }
                 &--left {
                     transform: rotate(180deg);
@@ -64,6 +67,10 @@ $innerPadding: 10em;
                 border-radius: 15px;
                 display: inline-block;
                 margin-right: 0.6em;
+                &:hover {
+                    background-color: config("colors.accent");
+                    border-color: config("colors.accent");
+                }
             }
             .active {
                 background-color: #fff;
@@ -136,6 +143,7 @@ $innerPadding: 10em;
             }
             @media (min-width: config("screens.sm")) {
                 padding: 7em 10% 6em 28%;
+                min-width: 450px;
             }
             @media (max-width: config("screens.sm")) {
                 padding: 2em 1em;

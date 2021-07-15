@@ -12,7 +12,7 @@
           </div>
         <?php endif; ?>
         <div class="col-12 sm:col-6 md:col-3">
-        <span class="break"></span>
+          <span class="break"></span>
           <?php if (get_field('phone_number', 'option')) : ?>
             <a href="tel:<?php the_field('phone_number', 'option') ?>">
               <p class="text-white mb-2">T: <?php the_field('phone_number', 'option') ?></p>
@@ -26,7 +26,7 @@
           <?php endif; ?>
         </div>
         <div class="col-12 sm:col-6 md:col-2">
-        <span class="break"></span>
+          <span class="break"></span>
           <?php if (get_field('facebook_social_url', 'option')) : ?>
             <a href="<?php the_field('facebook_social_url', 'option') ?>">
               <i class="fab fa-facebook-f text-white mr-4" style="font-size: 22px;"></i>
@@ -41,9 +41,27 @@
         </div>
       </div>
     </div>
+
   </footer>
+
   </div>
-  <?php wp_footer(); ?>
+
   </body>
+  <?php wp_footer(); ?>
+  <style>
+    .wpcf7-textarea {
+      background-color: #324776;
+      padding: 1em !important;
+      color: #fff !important;
+      width: 100% !important;
+      margin-bottom: 1em !important;
+    }
+    [v-cloak] {display: none}
+
+    p.alignleft, .alignleft {
+    float: left !important;
+    margin: 5px 20px 20px 0 !important;
+}
+  </style>
 
   </html>

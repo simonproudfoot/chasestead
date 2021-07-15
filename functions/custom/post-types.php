@@ -1,7 +1,7 @@
 <?php
+
 // Register Custom Post Type vacancy
 function create_vacancy_cpt() {
-
 	$labels = array(
 		'name' => _x( 'vacancies', 'Post Type General Name', 'textdomain' ),
 		'singular_name' => _x( 'vacancy', 'Post Type Singular Name', 'textdomain' ),
@@ -35,7 +35,7 @@ function create_vacancy_cpt() {
 		'label' => __( 'vacancy', 'textdomain' ),
 		'description' => __( 'vacancies', 'textdomain' ),
 		'labels' => $labels,
-		'menu_icon' => 'dashicons-megaphone',
+		'menu_icon' => 'dashicons-groups',
 		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'author', 'page-attributes'),
 		'taxonomies' => array(),
 		'public' => true,
@@ -53,14 +53,8 @@ function create_vacancy_cpt() {
 		'capability_type' => 'post',
 	);
 	register_post_type( 'vacancies', $args );
-
 }
 add_action( 'init', 'create_vacancy_cpt', 0 );
-
-
-
-
-
 function create_process_cpt() {
 	$labels = array(
 		'name' => _x( 'Processes', 'Post Type General Name', 'textdomain' ),
@@ -108,21 +102,17 @@ function create_process_cpt() {
 		'show_in_rest' => true,
 		'publicly_queryable' => true,
 		'capability_type' => 'page',
-		'has_archive' => false,
-		'hierarchical' => false,
-		'rewrite' => array('slug' => '/')
+		'has_archive' => true,
+		'hierarchical' => true,
 	);
 	register_post_type( 'process', $args );
-
 }
 add_action( 'init', 'create_process_cpt', 0 );
 function create_news_cpt() {
-
 	$labels = array(
-        'rewrite' => array("slug" => "news", "with_front" => false),
 		'name' => _x( 'news', 'Post Type General Name', 'textdomain' ),
 		'singular_name' => _x( 'news', 'Post Type Singular Name', 'textdomain' ),
-		'menu_name' => _x( 'news', 'Admin Menu text', 'textdomain' ),
+		'menu_name' => _x( 'News', 'Admin Menu text', 'textdomain' ),
 		'name_admin_bar' => _x( 'news', 'Add New on Toolbar', 'textdomain' ),
 		'archives' => __( 'news Archives', 'textdomain' ),
 		'attributes' => __( 'news Attributes', 'textdomain' ),
@@ -149,7 +139,6 @@ function create_news_cpt() {
 		'filter_items_list' => __( 'Filter news list', 'textdomain' ),
 	);
 	$args = array(
-        'rewrite' => array("slug" => "news", "with_front" => false),
 		'label' => __( 'news', 'textdomain' ),
 		'description' => __( '', 'textdomain' ),
 		'labels' => $labels,
@@ -171,9 +160,61 @@ function create_news_cpt() {
 		'capability_type' => 'post',
 	);
 	register_post_type( 'news', $args );
-
 }
 add_action( 'init', 'create_news_cpt', 0 );
-
-
+// Register Custom Post Type sector
+function create_sector_cpt() {
+	$labels = array(
+		'name' => _x( 'sectors', 'Post Type General Name', 'textdomain' ),
+		'singular_name' => _x( 'sector', 'Post Type Singular Name', 'textdomain' ),
+		'menu_name' => _x( 'Sectors', 'Admin Menu text', 'textdomain' ),
+		'name_admin_bar' => _x( 'sector', 'Add New on Toolbar', 'textdomain' ),
+		'archives' => __( 'sector Archives', 'textdomain' ),
+		'attributes' => __( 'sector Attributes', 'textdomain' ),
+		'parent_item_colon' => __( 'Parent sector:', 'textdomain' ),
+		'all_items' => __( 'All sectors', 'textdomain' ),
+		'add_new_item' => __( 'Add New sector', 'textdomain' ),
+		'add_new' => __( 'Add New', 'textdomain' ),
+		'new_item' => __( 'New sector', 'textdomain' ),
+		'edit_item' => __( 'Edit sector', 'textdomain' ),
+		'update_item' => __( 'Update sector', 'textdomain' ),
+		'view_item' => __( 'View sector', 'textdomain' ),
+		'view_items' => __( 'View sectors', 'textdomain' ),
+		'search_items' => __( 'Search sector', 'textdomain' ),
+		'not_found' => __( 'Not found', 'textdomain' ),
+		'not_found_in_trash' => __( 'Not found in Trash', 'textdomain' ),
+		'featured_image' => __( 'Featured Image', 'textdomain' ),
+		'set_featured_image' => __( 'Set featured image', 'textdomain' ),
+		'remove_featured_image' => __( 'Remove featured image', 'textdomain' ),
+		'use_featured_image' => __( 'Use as featured image', 'textdomain' ),
+		'insert_into_item' => __( 'Insert into sector', 'textdomain' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this sector', 'textdomain' ),
+		'items_list' => __( 'sectors list', 'textdomain' ),
+		'items_list_navigation' => __( 'sectors list navigation', 'textdomain' ),
+		'filter_items_list' => __( 'Filter sectors list', 'textdomain' ),
+	);
+	$args = array(
+		'label' => __( 'sector', 'textdomain' ),
+		'description' => __( '', 'textdomain' ),
+		'labels' => $labels,
+		'menu_icon' => 'dashicons-megaphone',
+		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'author', 'page-attributes', 'categories'),
+		'taxonomies' => array('category' ),
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'menu_position' => 20,
+		'show_in_admin_bar' => true,
+		'show_in_nav_menus' => true,
+		'can_export' => true,
+		'has_archive' => true,
+		'hierarchical' => true,
+		'exclude_from_search' => false,
+		'show_in_rest' => true,
+		'publicly_queryable' => true,
+		'capability_type' => 'post',
+	);
+	register_post_type( 'sectors', $args );
+}
+add_action( 'init', 'create_sector_cpt', 0 );
 ?>
