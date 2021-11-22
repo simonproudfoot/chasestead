@@ -14,8 +14,11 @@
         z-index: 1;
         margin: 0;
         color: #fff;
+        @media (max-width: config("screens.sm")) {
+            position: relative;
+            margin-top: 100px;
+        }
     }
-
     &__video {
         width: 100vw;
         height: 56.25vw;
@@ -47,6 +50,23 @@
     }
 
     &--front {
+        .header__image {
+            min-height: unset !important;
+        }
+        @media (max-width: config("screens.sm")) {
+            height: 400px !important;
+            min-height: unset;
+        }
+
+        &__video {
+            @media (max-width: config("screens.sm")) {
+                height: auto !important;
+                min-height: unset !important;
+                width: 100% !important;
+                max-width: none !important;
+            }
+        }
+
         &::after {
             content: "";
             width: 100%;
@@ -86,7 +106,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        min-height: 600px;
+        min-height: 613px;
         width: 100%;
         position: absolute;
         top: 0;
@@ -106,6 +126,9 @@
         background-color: config("colors.secondary");
         padding: 0.6em 1em;
         color: #fff;
+        @media (max-width: config("screens.sm")) {
+            bottom: 6px;
+        }
     }
 }
 .header--process {
@@ -124,7 +147,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(10, 27, 66, 0.3);
+        background-color: rgba(10, 27, 66, 0.5);
         background-position: bottom left;
         background-repeat: no-repeat;
         background-size: contain;

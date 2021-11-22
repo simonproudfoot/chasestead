@@ -5,3 +5,12 @@
   Version: 1
   Description: A WordPress theme built on Webpack (via Laravel Mix), Vue, Babel and Tailwind CSS.
 */
+
+
+#tidio-chat {
+  display: none;
+}
+
+.header--front:after {
+  transform: rotate(0deg);
+}

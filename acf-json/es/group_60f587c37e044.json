@@ -1,33 +1,9 @@
 {
-    "key": "group_60e42f21eaa99",
+    "key": "group_60f587c37e044",
     "title": "Home page",
     "fields": [
         {
-            "key": "field_619b5b67c7ce7",
-            "label": "Header Image",
-            "name": "header_img",
-            "type": "image",
-            "instructions": "Please add header image.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_60e42f337afe5",
+            "key": "field_60f587c37e081",
             "label": "Intro heading",
             "name": "intro_heading",
             "type": "text",
@@ -46,7 +22,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_60e42f497afe6",
+            "key": "field_60f587c37e0b9",
             "label": "intro text",
             "name": "intro_text",
             "type": "wysiwyg",
@@ -65,7 +41,7 @@
             "delay": 0
         },
         {
-            "key": "field_60ed5780e93ac",
+            "key": "field_60f587c37e0f1",
             "label": "Local video file",
             "name": "local_or_vimeo",
             "type": "true_false",
@@ -84,7 +60,7 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_60e8266228c17",
+            "key": "field_60f587c37e128",
             "label": "feature video (local file)",
             "name": "feature_video",
             "type": "file",
@@ -93,7 +69,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_60ed5780e93ac",
+                        "field": "field_60f587c37e0f1",
                         "operator": "==",
                         "value": "1"
                     }
@@ -111,7 +87,7 @@
             "mime_types": ""
         },
         {
-            "key": "field_60ed57b4e93ad",
+            "key": "field_60f587c37e15f",
             "label": "Feature video (Vimeo)",
             "name": "feature_video_vimeo",
             "type": "text",
@@ -120,7 +96,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_60ed5780e93ac",
+                        "field": "field_60f587c37e0f1",
                         "operator": "!=",
                         "value": "1"
                     }
@@ -155,5 +131,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1637571502
+    "modified": 1626703811
 }

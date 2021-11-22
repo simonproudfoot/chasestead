@@ -1,4 +1,4 @@
-<nav class="relative z-20"> 
+<nav class="relative z-20">
     <div class="preNav d-block z-20">
         <div class="relative flex items-center justify-between md:px-6 lg:px-8 ">
             <div class="flex-1 flex items-center justify-cnter sm:items-stretch md:justify-end">
@@ -6,9 +6,11 @@
                     <div class="flex">
                         <a href="<?php echo site_url() ?>/contact"><button class="bg-accent hover:accent-dark py-1 px-3 mx-3  tablet:mx-6 mb-0">GET A QUOTE ></button></a>
                         <a href="tel:<?php the_field('phone_number', 'option') ?>" class="text-accent  sm:block hover:text-white mx-6 "><?php the_field('phone_number', 'option') ?></a>
-                        <!-- <a href=""><img src="<?php //echo esc_url(get_template_directory_uri()) ?>/src/img/spain.svg" class="ml-4 my-5" alt="spain" width="27" height="17"></a>
-                        <a href=""><img src="<?php //echo esc_url(get_template_directory_uri()) ?>/src/img/germany.svg" class="ml-2 my-5" alt="germany" width="28" height="18"></a>
-                        <a href=""><img src="<?php //echo esc_url(get_template_directory_uri()) ?>/src/img/uk.svg" class="ml-2 my-5" alt="uk" width="33" height="17.5" style="border: 1px solid #fff"></a> -->
+                        <?php //echo do_shortcode('[wpml_language_selector_widget]') ?>
+                      <!--  <a href="<?php // echo site_url(); ?>/?lang=''"><img src="<?php //echo esc_url(get_template_directory_uri()) ?>/src/img/uk.svg" class="ml-2 my-5" alt="uk" width="33" height="17.5" style="border: 1px solid #fff"></a>
+                        <a href="<?php //echo site_url(); ?>/?lang='de'"><img src="<?php //echo esc_url(get_template_directory_uri()) ?>/src/img/germany.svg" class="ml-2 my-5" alt="germany" width="28" height="18"></a>
+                        <a href="<?php //echo site_url(); ?>/?lang='es'"><img src="<?php //echo esc_url(get_template_directory_uri()) ?>/src/img/spain.svg" class="ml-2 my-5" alt="spain" width="27" height="17"></a> -->
+                       
                     </div>
                 </div>
             </div>
@@ -18,7 +20,7 @@
         <div x-data="{ menuOpen: false }" class="flex flex-col max-w-screen-xl  mx-auto tablet:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
             <div class="p-4 flex flex-row items-center justify-between sm:w-full tablet:w-full">
                 <a href="<?php echo site_url() ?>"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/src/img/<?php echo is_page('Home') ? 'logo-white' : 'logo' ?>.svg" width="272" height="86"></a>
-                <button class="tablet:hidden focus:outline-none " @click="menuOpen = !menuOpen">
+                <button class="tablet:hidden focus:outline-none " @click="menuOpen = !menuOpen">|
                     <svg fill="currentColor" viewBox="0 0 16 18" class="w-6 h-6">
                         <path v-show="!menuOpen" fill="<?php echo is_page('Home') ? '#fff' : '#000' ?>" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
                         <path v-show="menuOpen" fill="#fff" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -26,7 +28,7 @@
                 </button>
             </div>
             <nav :class="{'flex': menuOpen, 'hidden': !menuOpen}" class="mainNav__largeNav flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row <?php echo is_page('Home') ? 'text-white' : 'text-primary' ?>">
-                <div class="mainNav__dropdown" >
+                <div class="mainNav__dropdown">
                     <a href="<?php echo site_url() ?>/about" class="px-2 font-bold <?php echo is_page('Home') ? 'text-white' : 'text-primary' ?>">About</a>
                 </div>
                 <div class="mainNav__dropdown" @mouseover="dropDown('Processes', true)" @mouseleave="dropDown('Processes', false)">
@@ -35,7 +37,8 @@
                         <?php
                         $loop = new WP_Query(
                             array(
-                                'post_type' => 'process'
+                                'post_type' => 'process',
+                                'order' => 'ASC'
                             )
                         );
                         while ($loop->have_posts()) : $loop->the_post(); ?>
@@ -54,7 +57,8 @@
                         <?php
                         $loop = new WP_Query(
                             array(
-                                'post_type' => 'sectors'
+                                'post_type' => 'sectors',
+                                'order' => 'ASC'
                             )
                         );
                         while ($loop->have_posts()) : $loop->the_post(); ?>
@@ -67,7 +71,7 @@
                         ?>
                     </ul>
                 </div>
-                <div class="mainNav__dropdown" >
+                <div class="mainNav__dropdown">
                     <a href="<?php echo site_url() ?>/news" class="px-2 font-bold <?php echo is_page('Home') ? 'text-white' : 'text-primary' ?>">News</a>
                 </div>
                 <div class="mainNav__dropdown">

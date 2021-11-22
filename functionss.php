@@ -65,7 +65,11 @@ function df_disable_comments_status()
 add_filter('comments_open', 'df_disable_comments_status', 20, 2);
 add_filter('pings_open', 'df_disable_comments_status', 20, 2);
 
+<<<<<<< HEAD
 // Finally, hide any existing comments that are on the site.
+=======
+// Finally, hide any existing comments that are on the site. 
+>>>>>>> 46da41a7fec4924552602c266bb5398a467ef997
 function df_disable_comments_hide_existing_comments($comments)
 {
   $comments = array();

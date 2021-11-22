@@ -3,16 +3,23 @@
 <?php if (is_page('Home')) : ?>
     <header>
         <div class="header header--front">
-            <?php if (get_field('header_video') || get_field('header_video_vimeo')) : ?>
-                <?php if (!get_field('local_or_vimeo')) : ?>
+        <div class="overlay"></div>
+            <a href="#scroll2me" class="head-arrow-down"></a>
+            <!-- <?php //if (get_field('header_video') || get_field('header_video_vimeo')) : ?>
+                <?php // if (!get_field('local_or_vimeo')) : ?>
                     <video class="header__video header__image" muted autoplay loop>
-                        <source src="<?php the_field('header_video') ?>" type="video/mp4">
+                        <source src="<?php// the_field('header_video') ?>" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                <?php else : ?>
-                    <iframe class="header__video" id="player1" src="https://player.vimeo.com/video/<?php the_field('header_video_vimeo'); ?>?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                <?php endif; ?>
-            <?php endif; ?>
+                <?php // else : ?>
+                    <iframe class="header__video" id="player1" src="https://player.vimeo.com/video/<?php //the_field('header_video_vimeo'); ?>?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <?php // endif; ?>
+            <?php // endif;
+            $image = get_field('header_img');
+            ?> -->
+            <div class="header__img">
+                <img src="<?php echo esc_url($image['url']); ?>" alt="Header Image">
+            </div>
             <?php if (get_field('brochure_pdf_file', 'option')) : ?>
                 <a href="<?php echo the_field('brochure_pdf_file', 'option') ?>">
                     <div class="header__brochure"><i class="fa fa-download text-accent"></i> Download our brochure</div>
@@ -38,6 +45,10 @@
                         <?php if (is_archive()) : ?>
                             <?php if (get_query_var('post_type') == 'process') : ?>
                                 Processes
+                            <?php elseif (get_query_var('post_type') == 'vacancies') : ?>
+                                Vacancies
+                            <?php elseif (get_query_var('post_type') == 'news') : ?>
+                                LATEST NEWS
                             <?php else : ?>
                                 <?php the_title(); ?>
                             <?php endif; ?>
@@ -54,7 +65,7 @@
                     <div class="header__image header__image--small bg-primary" style="background-image: url('<?php the_post_thumbnail_url('singleHead') ?>'">
                     </div>
                 <?php else : ?>
-                    <div class="header__image header__image--small bg-primary" style="background-image: url('<?php echo esc_url(get_template_directory_uri()) ?>/src/img/aviaton.jpg'">
+                    <div class="header__image header__image--small bg-primary" style="background-image: url('<?php echo esc_url(get_template_directory_uri()) ?>/src/img/aviation.jpg'; background-position: unset">
                     </div>
                 <?php endif; ?>
                 <div class="header--process__shape" style="background-image: url('<?php echo esc_url(get_template_directory_uri()) ?>/src/img/processheader_overlay.png')">

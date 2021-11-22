@@ -46,7 +46,10 @@ p {
 }
 .main {
     &--frontpage {
-        padding-top: 550px;
+        padding-top: 500px;
+        @media (max-width: config("screens.sm")) {
+            padding-top: 350px;
+        }
     }
 }
 .container {
@@ -214,3 +217,19 @@ a img.aligncenter {
     margin: 0;
     padding: 0 4px 5px;
 }
+
+main{
+    min-height: 500px;
+}
+
+// FIX
+
+.no-gutter {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+  
+  .no-gutter > [class*="col-"] {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }

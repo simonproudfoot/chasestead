@@ -29,17 +29,28 @@ var app = new Vue({
     }
   },
   computed: {
-    slidecount() {
-      if (this.window.width < 576) {
+    carouselWidth() {
+      var w = this.window.width
+      if (w < 500) {
+        return 1
+      } else if(w > 500 && w < 900) {
         return 2
       }
-      else if (this.window.width > 974 && this.window.width > 576) {
-        return 5
-      }
-      else {
+      else{
         return 5
       }
     },
+    // slidecount() {
+    //   if (this.window.width < 576) {
+    //     return 2
+    //   }
+    //   else if (this.window.width > 974 && this.window.width > 576) {
+    //     return 5
+    //   }
+    //   else {
+    //     return 5
+    //   }
+    // },
   },
   methods: {
     stopVideo(overlay) {
@@ -150,7 +161,7 @@ var app = new Vue({
         item.style.display = 'block'
         item.style.opacity = 1
         item.previousElementSibling.classList.add('active')
-  
+
       } else {
         item.previousElementSibling.classList.remove('active')
         item.style.display = 'none'
@@ -186,7 +197,6 @@ var app = new Vue({
   created() {
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
-
     this.slidePlay()
 
   },
