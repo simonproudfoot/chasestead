@@ -5,6 +5,8 @@ import Vue from 'vue'
 import VueCarousel from 'vue-carousel';
 Vue.use(VueCarousel);
 import vueVimeoPlayer from 'vue-vimeo-player'
+
+
 Vue.use(vueVimeoPlayer)
 var app = new Vue({
   props: ['content'],
@@ -25,34 +27,33 @@ var app = new Vue({
       menuTl: new gsap.timeline(),
       videoPlaying: [], // in case I need to use this again
       autoPlaySlides: true,
+      slideReady: false,
       selectedImg: 1,
+      countCarousel: 5,
     }
   },
   computed: {
-    carouselWidth() {
+    slidecount() {
       var w = this.window.width
       if (w < 500) {
-        return 1
-      } else if(w > 500 && w < 900) {
-        return 2
+        this.countCarousel = 1
+      } else if (w > 500 && w < 900) {
+        this.countCarousel = 2
       }
-      else{
-        return 5
+      else {
+        this.countCarousel = 5
       }
     },
-    // slidecount() {
-    //   if (this.window.width < 576) {
-    //     return 2
-    //   }
-    //   else if (this.window.width > 974 && this.window.width > 576) {
-    //     return 5
-    //   }
-    //   else {
-    //     return 5
-    //   }
-    // },
+   
+
   },
   methods: {
+   
+    scrollMeTo(refName) {
+      var element = this.$refs[refName];
+      var top = element.offsetTop;
+      window.scrollTo(0, top);
+    },
     stopVideo(overlay) {
       gsap.to(this.$refs[overlay], { opacity: 1, duration: 0.5 })
     },
@@ -91,13 +92,13 @@ var app = new Vue({
       }
     },
     slideNext(stopAuto) {
-      if (stopAuto) {
-        clearInterval(this.sliding)
-      }
+
+
 
       if (!this.preventPress) {
         this.preventSlideClick(true)
         if (this.currentSlide < this.slideCount) {
+
           this.newsSliderTl.to('.slideContent', { x: -100, opacity: 0, duration: 0.5 })
           setTimeout(() => {
             this.newsSliderTl.set('.slideContent', { x: 100, opacity: 0, onComplete: this.next() })
@@ -111,9 +112,12 @@ var app = new Vue({
           }, 500);
         }
       }
+      if (stopAuto) {
+        clearInterval(this.sliding)
+      }
     },
     slidePrev() {
-      clearInterval(this.sliding)
+  
       if (!this.preventPress) {
         this.preventSlideClick(true)
         if (this.currentSlide >= this.slideCount) {
@@ -130,6 +134,7 @@ var app = new Vue({
           }, 500);
         }
       }
+      clearInterval(this.sliding)
     },
     // had to make these functions
     next() {
@@ -171,7 +176,19 @@ var app = new Vue({
     handleResize() {
       this.window.width = window.innerWidth;
       this.window.height = window.innerHeight;
+
+
+      var w = this.window.width
+      if (w < 500) {
+        this.countCarousel = 1
+      } else if (w > 500 && w < 900) {
+        this.countCarousel = 2
+      }
+      else {
+        this.countCarousel = 5
+      }
     }
+    
   },
   watch: {
     autoPlaySlides(v) {
@@ -193,6 +210,16 @@ var app = new Vue({
         gsap.to('.header__brochure', { autoAlpha: 1, duration: 0.3, ease: 'easeIn' });
       }
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      console.log(this.$refs['slideContent'])
+    })
+
+
+    
+    
+
   },
   created() {
     window.addEventListener('resize', this.handleResize);

@@ -46,7 +46,7 @@ p {
 }
 .main {
     &--frontpage {
-        padding-top: 500px;
+        padding-top: 200px;
         @media (max-width: config("screens.sm")) {
             padding-top: 350px;
         }

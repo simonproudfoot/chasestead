@@ -1,24 +1,15 @@
 <?php get_template_part('/includes/meta'); ?>
 <?php get_template_part('/includes/navbar'); ?>
 <?php if (is_page('Home')) : ?>
-    <header>
-        <div class="header header--front">
-        <div class="overlay"></div>
-            <a href="#scroll2me" class="head-arrow-down"></a>
-            <!-- <?php //if (get_field('header_video') || get_field('header_video_vimeo')) : ?>
-                <?php // if (!get_field('local_or_vimeo')) : ?>
-                    <video class="header__video header__image" muted autoplay loop>
-                        <source src="<?php// the_field('header_video') ?>" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                <?php // else : ?>
-                    <iframe class="header__video" id="player1" src="https://player.vimeo.com/video/<?php //the_field('header_video_vimeo'); ?>?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                <?php // endif; ?>
+    <header style="min-height: 0 !important">
+        <div class="header header--front"  style="background-color: #000; min-height: 400px;">
+            <div class="overlay"></div>
+            <div @click="scrollMeTo('jumpTo')" class="head-arrow-down"></div>
             <?php // endif;
-            $image = get_field('header_img');
-            ?> -->
-            <div class="header__img">
-                <img src="<?php echo esc_url($image['url']); ?>" alt="Header Image">
+                $image = get_field('header_img');
+            ?>
+            <div class="header__img" style="max-width: 500px; margin: auto; padding-top: 60px;">
+                <img src="<?php echo esc_url($image['url']); ?>" alt="Header Image" style="margin: auto" >
             </div>
             <?php if (get_field('brochure_pdf_file', 'option')) : ?>
                 <a href="<?php echo the_field('brochure_pdf_file', 'option') ?>">
@@ -26,6 +17,9 @@
                 </a>
             <?php endif; ?>
     </header>
+
+
+
     <?php elseif (is_page('contact')) : { ?>
         <header class="z-10 relative">
             <div class="header header--map relative">

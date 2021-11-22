@@ -39,6 +39,7 @@
     "vue": "^2.5.17",
     "vue-carousel": "^0.18.0",
     "vue-screen-size": "^1.0.1",
-    "vue-vimeo-player": "^0.2.2"
+    "vue-vimeo-player": "^0.2.2",
+    "vue2-smooth-scroll": "^1.5.1"
   }
 }

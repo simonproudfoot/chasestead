@@ -43,7 +43,7 @@
             while ($loop->have_posts()) : $loop->the_post();
             ?>
                 <?php $index++ ?>
-                <div class="cta__content__inner slideContent" v-if="currentSlide === <?php echo $index ?>">
+                <div class="cta__content__inner slideContent" v-show="currentSlide === <?php echo $index ?>">
                     <h2 class="text-white text-uppercase"><?php the_title(); ?></h2>
                     <span class="break"></span>
                     <p class="text-white"><?php the_excerpt(); ?></p>

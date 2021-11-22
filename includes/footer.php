@@ -94,10 +94,6 @@ $( document ).ready(function() {
       display: none
     }
 
-    .main--frontpage {
-        padding-top: 43%;
-    }
-
     p.alignleft,
     .alignleft {
       float: left !important;
@@ -114,8 +110,8 @@ $( document ).ready(function() {
 
     .head-arrow-down {
       background: url('<?php echo esc_url(get_template_directory_uri()) ?>/src/img/down-arrow.png');
-      height: 70px;
-      width: 70px;
+      height: 40px;
+      width: 40px;
       background-size: contain;
       position: absolute;
       top: 72%;
@@ -125,18 +121,16 @@ $( document ).ready(function() {
       scroll-behavior: smooth;
     }
 
-    h1#scroll2me {
-        padding-top: 8%;
-    }
+   
 
     @media (max-width: 767px) {
      
       .head-arrow-down {
           background: url(http://ducknest.co.uk/chasestead/wp-content/themes/chasestead/src/img/down-arrow.png);
-          height: 50px;
-          width: 50px;
+          height: 40px;
+          width: 40px;
           top: 70%; 
-          background-size: 50px;
+          background-size: contain;
       }
 
     }
@@ -193,7 +187,7 @@ $( document ).ready(function() {
 
 @media (max-width: 576px) {
     .main--frontpage {
-      padding-top: 150px;
+      padding-top: 250px;
     }
     .header--front {
     height: 281px !important;
